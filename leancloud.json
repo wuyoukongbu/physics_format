@@ -2,10 +2,13 @@
     "framework": "python",
     "runtime": "python3.9",
     "deploy": {
-        "startCommand": "gunicorn wsgi:application",
-        "healthCheckPath": "/",
+        "startCommand": "gunicorn wsgi:application --bind 0.0.0.0:$PORT",
+        "healthCheckPath": "/health",
         "healthCheckTimeout": 100,
         "minReplicas": 1,
         "maxReplicas": 1
+    },
+    "env": {
+        "LEANCLOUD_APP_ENV": "production"
     }
 } 
