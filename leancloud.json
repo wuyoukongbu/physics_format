@@ -1,0 +1,19 @@
+{
+    "appid": "your-app-id",
+    "appkey": "your-app-key",
+    "masterkey": "your-master-key",
+    "hook": {
+        "production": {
+            "build": "pip install -r requirements.txt"
+        }
+    },
+    "framework": "python",
+    "runtime": "python3.9",
+    "deploy": {
+        "startCommand": "python app.py",
+        "healthCheckPath": "/",
+        "healthCheckTimeout": 100,
+        "minReplicas": 1,
+        "maxReplicas": 1
+    }
+} 

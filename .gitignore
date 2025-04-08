@@ -38,4 +38,8 @@ uploads/
 
 # OS specific
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# LeanCloud
+.leancloud/
+.leancloud-deploy/ 

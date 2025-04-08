@@ -50,5 +50,12 @@ def upload_file():
         if os.path.exists(output_path):
             os.remove(output_path)
 
+# LeanCloud 健康检查
+@app.route('/health')
+def health_check():
+    return 'ok'
+
 if __name__ == '__main__':
-    app.run(debug=True) 
+    # 获取环境变量中的端口，如果没有则使用5000
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port) 
