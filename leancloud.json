@@ -2,7 +2,7 @@
     "framework": "python",
     "runtime": "python3.9",
     "deploy": {
-        "startCommand": "python app.py",
+        "startCommand": "gunicorn wsgi:application",
         "healthCheckPath": "/",
         "healthCheckTimeout": 100,
         "minReplicas": 1,
