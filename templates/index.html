@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档格式化工具</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .file-input {
+            display: none;
+        }
+        .file-label {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .file-label:hover {
+            background-color: #45a049;
+        }
+        .submit-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #1976D2;
+        }
+        .file-name {
+            margin-top: 10px;
+            color: #666;
+        }
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>文档格式化工具</h1>
+        <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" class="file-input" accept=".docx" onchange="updateFileName()">
+            <label for="file" class="file-label">选择文件</label>
+            <div id="fileName" class="file-name"></div>
+            <button type="submit" class="submit-btn">上传并处理</button>
+        </form>
+        <div class="instructions">
+            <h3>使用说明：</h3>
+            <ol>
+                <li>点击"选择文件"按钮选择要处理的Word文档（.docx格式）</li>
+                <li>点击"上传并处理"按钮</li>
+                <li>系统会自动处理文档并下载处理后的文件</li>
+            </ol>
+            <p>注意：文件大小限制为16MB</p>
+        </div>
+    </div>
+
+    <script>
+        function updateFileName() {
+            const input = document.getElementById('file');
+            const fileNameDiv = document.getElementById('fileName');
+            if (input.files.length > 0) {
+                fileNameDiv.textContent = '已选择: ' + input.files[0].name;
+            } else {
+                fileNameDiv.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html> 
